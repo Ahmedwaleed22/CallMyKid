@@ -1,0 +1,44 @@
+.pageContainer .accountCard {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border: 1px solid #d4d4d4;
+  margin: 0 20px;
+  padding: 30px;
+}
+.pageContainer .pageTitle {
+  margin: 30px 20px;
+}
+.pageContainer .accountCard img {
+  margin: 10px 20px;
+  height: 200px;
+  width: 200px;
+}
+.pageContainer .accountCard .cardText h3 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.pageContainer .accountCard .cardText h3:not(:last-child) {
+  margin-bottom: 1em;
+}
+.pageContainer .actions {
+  height: 100px;
+  max-width: 500px;
+  margin: 130px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.pageContainer .actions a {
+  background: #5e8885;
+  text-decoration: none;
+  color: #000;
+  padding: 10px 70px;
+  border-radius: 20px;
+}
+@media screen and (max-width: 950px) {
+  .pageContainer .accountCard {
+    justify-content: center;
+  }
+}

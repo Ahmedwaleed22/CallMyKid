@@ -1,0 +1,17 @@
+.pageContainer {
+  background: linear-gradient(to bottom, #e3e3e3, #fff);
+  min-height: calc(100vh - 90px);
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  justify-content: center;
+}
+.pageContainer img {
+  max-width: 500px;
+  max-height: 700px;
+}
+.pageContainer p {
+  color: #0436a7;
+  max-width: 500px;
+  text-align: center;
+}

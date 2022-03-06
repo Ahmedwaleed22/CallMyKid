@@ -1,0 +1,52 @@
+.pageContainer {
+  max-width: 700px;
+  border: 1px solid #707070;
+  margin: 3rem auto;
+}
+.pageContainer .to_container,
+.pageContainer .subject_container {
+  border-bottom: 1px solid #707070;
+  display: flex;
+  position: relative;
+  padding: 10px 0;
+}
+.pageContainer .to_container span,
+.pageContainer .subject_container span {
+  font-size: 1.3rem;
+  color: #707070;
+  padding-left: 10px;
+  position: absolute;
+}
+.pageContainer .to_container h3,
+.pageContainer .subject_container h3 {
+  margin: 0 auto;
+}
+.pageContainer .text_area_container {
+  padding: 30px 30px 1em;
+}
+.pageContainer .text_area_container textarea {
+  max-width: 100%;
+  min-width: 100%;
+  padding: 10px;
+  font-size: 1.1rem;
+}
+.pageContainer .text_area_container .formActions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.actions {
+  margin: 3em;
+}
+.actions a {
+  background: var(--green-buttons-background-color);
+  padding: 10px 40px;
+  color: #000;
+  text-decoration: none;
+  border-radius: 20px;
+}
+@media screen and (max-width: 710px) {
+  .pageContainer {
+    width: 90%;
+  }
+}

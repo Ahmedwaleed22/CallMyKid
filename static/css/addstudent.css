@@ -1,0 +1,80 @@
+.pageContainer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+  min-height: 100vh;
+}
+.pageContainer .pageTitle {
+  margin: 30px 20px;
+}
+.pageContainer .side:last-child {
+  width: 100%;
+  margin-left: 3em;
+  align-self: center;
+}
+.pageContainer .side:last-child .side-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+.pageContainer .side {
+  width: 30%;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+.pageContainer .side .studentAvatar:last-child {
+  margin-top: 20px;
+}
+.pageContainer .side .studentAvatar {
+  height: 150px;
+  width: 150px;
+}
+.pageContainer .side:last-child form {
+  display: flex;
+  flex-direction: column;
+}
+.pageContainer .side:last-child form .form-group {
+  width: 90%;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pageContainer .side:last-child form .form-group label {
+  font-size: 1rem;
+  width: 200px;
+  text-align: right;
+}
+.pageContainer .side:last-child form .form-group.required label::after {
+  content: "*";
+  color: red;
+  margin-left: 5px;
+}
+.pageContainer .side:last-child form .form-group input {
+  width: 700px;
+  float: right;
+  padding: 0.7em;
+}
+.actions {
+  height: 100px;
+  max-width: 500px;
+  margin: 0.5em auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.actions a {
+  background: var(--green-buttons-background-color);
+  text-decoration: none;
+  color: #000;
+  padding: 10px 70px;
+  border-radius: 20px;
+}
+@media screen and (max-width: 950px) {
+  .pageContainer .accountCard {
+    justify-content: center;
+  }
+}

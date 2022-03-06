@@ -1,0 +1,30 @@
+.pageContainer {
+  width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3rem;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+.pageContainer img {
+  width: 200px;
+  height: 200px;
+}
+.pageContainer h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+.pageContainer h2.failedTitle {
+  color: red;
+}
+.backButton {
+  margin: 5rem 0;
+  align-self: flex-start;
+  background: var(--green-buttons-background-color);
+  padding: 10px 40px;
+  border-radius: 20px;
+  color: #000;
+  text-decoration: none;
+}

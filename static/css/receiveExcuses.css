@@ -1,0 +1,112 @@
+.pageContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+}
+.pageContainer .upperPage {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.pageContainer .upperPage > input {
+  text-align: center;
+  width: 100%;
+  padding: 0.7em;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid #d4d4d4;
+  background: #e5e3e3;
+  font-size: 1.1rem;
+}
+.pageContainer .upperPage .dateController {
+  display: flex;
+  align-items: center;
+  margin: 2em 0;
+}
+.pageContainer .upperPage .dateController > span {
+  font-size: 1.5rem;
+}
+.pageContainer .upperPage .dateController input {
+  margin-left: 10px;
+  border-radius: 20px;
+  padding: 0.7em 2em;
+  outline: none;
+  border: 1px solid #707070;
+  font-size: 1.1rem;
+}
+.pageContainer .excusesContainer {
+  border: 1px solid #707070;
+  width: 100%;
+  height: 550px;
+  border-radius: 5px;
+  overflow-y: scroll;
+}
+.pageContainer .excusesContainer::-webkit-scrollbar {
+  display: none;
+}
+.pageContainer .excusesContainer .excuseCardLink {
+  text-decoration: none;
+  color: #000;
+}
+.pageContainer .excusesContainer .excuseCard {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #707070;
+}
+.pageContainer .excusesContainer .excuseCard .avatar {
+  margin-right: 20px;
+  text-align: center;
+}
+.pageContainer .excusesContainer .excuseCard .avatar img {
+  width: 50px;
+  height: 50px;
+}
+.pageContainer .excusesContainer .excuseCard .studentName {
+  align-self: flex-start;
+  padding-top: 0.7em;
+  color: #7b7b7b;
+}
+.pageContainer .excusesContainer .excuseCard .excuseInfo {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pageContainer .excusesContainer .excuseCard .excuseInfo span:not(:last-child) {
+  margin-bottom: 5px;
+}
+.pageContainer .excusesContainer .excuseCard .excuseInfo * {
+  color: #7b7b7b;
+}
+.pageContainer .excusesContainer .excuseCard .excuseInfo span.moreIcon {
+  font-size: 1.2rem;
+}
+.actions {
+  height: 100px;
+  max-width: 500px;
+  margin: 0.5em auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.actions a {
+  background: var(--green-buttons-background-color);
+  text-decoration: none;
+  color: #000;
+  padding: 10px 70px;
+  border-radius: 20px;
+}
+@media screen and (max-width: 810px) {
+  .excusesContainer {
+    width: 90% !important;
+  }
+}

@@ -1,0 +1,102 @@
+.upperPage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  min-height: 250px;
+}
+.upperPage .studentInfo {
+  position: absolute;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.upperPage .studentInfo img {
+  height: 150px;
+  width: 150px;
+  margin-bottom: 10px;
+}
+.upperPage .searchAndDate {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 500px;
+}
+.upperPage .searchAndDate input {
+  width: 100%;
+  margin: 2rem 0;
+  padding: 0.7em;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid #d4d4d4;
+  background: #e5e3e3;
+  font-size: 1.1rem;
+  text-align: center;
+}
+.upperPage .searchAndDate .dateController {
+  display: flex;
+  margin: 0 auto;
+}
+.upperPage .searchAndDate .dateController span {
+  border: 1px solid #d4d4d4;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 1.1rem;
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+}
+.upperPage .searchAndDate .dateController span img {
+  height: 20px;
+  cursor: pointer;
+}
+.middlePage {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  height: calc(100vh - (90px + 200px));
+}
+.middlePage .table-container {
+  margin-top: 3em;
+  max-height: 500px;
+  overflow: scroll;
+  margin: 0 auto;
+}
+.middlePage .table-container table {
+  border-collapse: collapse;
+}
+.middlePage .table-container table thead th {
+  position: sticky;
+  top: 0;
+  background: #fff;
+}
+.middlePage .table-container table,
+td,
+th {
+  border: 1px solid #d4d4d4;
+  padding: 2em;
+}
+.middlePage .table-container table tr td a {
+  color: #000;
+  text-decoration: none;
+}
+@media screen and (max-width: 730px) {
+  .upperPage {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .pageContainer .studentInfo {
+    position: static;
+    margin: 30px 0;
+  }
+  .upperPage .searchAndDate {
+    margin: 30px 0;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .table-container {
+    width: 100%;
+    padding: 10px;
+  }
+}

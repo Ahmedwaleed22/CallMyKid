@@ -1,0 +1,102 @@
+.pageContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+.pageContainer .searchBarContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 0 2em;
+}
+.pageContainer .selectAllContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 2em;
+}
+.pageContainer .selectAllContainer button {
+  background: var(--green-buttons-background-color);
+  outline: none;
+  border: 0;
+  padding: 10px 40px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.pageContainer .searchBar {
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  padding: 0.7em;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid #d4d4d4;
+  background: #e5e3e3;
+  font-size: 1.1rem;
+  margin: 0 auto;
+}
+.pageContainer .pageTables {
+  height: 80vh;
+  overflow: scroll;
+  display: flex;
+  justify-content: space-between;
+}
+.pageContainer .table-container {
+  width: 48%;
+}
+.pageContainer .table-container table {
+  width: 100%;
+}
+.pageContainer .table-container table,
+th,
+td {
+  border: 1px solid #707070;
+  border-collapse: collapse;
+  text-align: center;
+  padding: 10px;
+}
+.pageContainer .table-container table tbody tr td:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0;
+}
+.pageContainer .table-container table tbody tr:not(:last-child) {
+  border-bottom: 1px solid #707070;
+}
+.actions {
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 150px;
+}
+.actions button,
+.actions a {
+  background: var(--green-buttons-background-color);
+  padding: 10px;
+  outline: none;
+  border: 0;
+  border-radius: 20px;
+  text-align: center;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.actions a {
+  width: 70%;
+  margin-bottom: 10px;
+}
+.actions button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+}
+@media screen and (max-width: 950px) {
+  .actions {
+    max-width: none;
+  }
+}

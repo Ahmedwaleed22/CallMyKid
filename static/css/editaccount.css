@@ -1,0 +1,125 @@
+.pageContainer {
+  flex-shrink: 0;
+  display: flex;
+  margin: 0 20px;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+.pageContainer .pageTitle {
+  margin: 30px 20px;
+}
+.pageContainer .side:last-child {
+  width: 100%;
+  margin-left: 3em;
+  align-self: flex-end;
+  padding-top: 120px;
+  max-width: 1100px;
+}
+.pageContainer .side:last-child .side-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+.pageContainer .side {
+  width: 30%;
+}
+.pageContainer .error {
+  background: red;
+  color: #fff;
+  padding: 15px 10px;
+  border-radius: 10px;
+  width: 80%;
+  margin: 20px auto;
+}
+.pageContainer .success {
+  background: rgb(57 201 0);
+  color: #fff;
+  padding: 15px 10px;
+  border-radius: 10px;
+  width: 80%;
+  margin: 20px auto;
+}
+.pageContainer .side .studentAvatar {
+  height: 150px;
+  width: 150px;
+}
+.pageContainer .side:last-child form {
+  display: flex;
+  flex-direction: column;
+}
+.pageContainer .side:last-child form .form-group {
+  width: 90%;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pageContainer .side:last-child form .form-group label {
+  font-size: 1rem;
+  max-width: 200px;
+  text-align: right;
+}
+.pageContainer .side:last-child form .form-group.required label::after {
+  content: "*";
+  color: red;
+  margin-left: 5px;
+}
+.pageContainer .side:last-child form .form-group input {
+  max-width: 700px;
+  width: 100%;
+  float: right;
+  padding: 0.7em;
+}
+.actions {
+  height: 100px;
+  max-width: 500px;
+  margin: 130px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.actions button {
+  background: var(--green-buttons-background-color);
+  text-decoration: none;
+  color: #000;
+  padding: 10px 50px;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+}
+@media screen and (max-width: 950px) {
+  .pageContainer .accountCard {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 1130px) {
+  .pageContainer {
+    flex-wrap: wrap;
+  }
+  .pageContainer .side:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .pageContainer .side:last-child {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pageContainer .side:last-child form {
+    width: 100%;
+    align-items: center;
+  }
+  .pageContainer .side:last-child form .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .pageContainer .side:last-child form .form-group label {
+    margin-bottom: 10px;
+  }
+}

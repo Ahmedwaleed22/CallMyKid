@@ -1,0 +1,44 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--background-color);
+}
+.loginPageContainer {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.loginPageContainer .form-group:not(:last-child) {
+  margin-bottom: 1em;
+}
+.loginPageContainer form input {
+  border-radius: 20px;
+  width: 100%;
+  padding: 1em 2em;
+  font-size: 0.9rem;
+  outline: none;
+  border: 0;
+  margin-top: 10px;
+}
+.loginPageContainer form button {
+  outline: none;
+  border: 0;
+  background: #5e8885;
+  font-size: 1rem;
+  padding: 10px 70px;
+  border-radius: 20px;
+  margin-top: 1em;
+  cursor: pointer;
+}
+.loginPageContainer .side:last-child img {
+  height: 200px;
+  width: 300px;
+}
+@media screen and (max-width: 950px) {
+  .loginPageContainer .side:last-child {
+    display: none;
+  }
+}

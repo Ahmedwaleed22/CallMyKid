@@ -1,0 +1,76 @@
+.pageContainer {
+  padding-top: 1.5em;
+  position: relative;
+}
+.pageContainer .pageTitle {
+  font-size: 2.5rem;
+  text-align: center;
+}
+.pageContainer .searchBarContainer {
+  margin: 0 auto;
+  max-width: 500px;
+  width: 90%;
+}
+.pageContainer .searchBarContainer input {
+  width: 100%;
+  margin: 2rem 0;
+  padding: 0.7em;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid #d4d4d4;
+  background: #e5e3e3;
+  font-size: 1.1rem;
+  text-align: center;
+}
+.pageContainer .container {
+  display: flex;
+}
+.pageContainer .studentsLogIcon {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.pageContainer .table-container {
+  margin-top: 3em;
+  max-height: 500px;
+  overflow: scroll;
+  margin: 0 auto;
+}
+.pageContainer .table-container table {
+  border-collapse: collapse;
+}
+.pageContainer .table-container table thead th {
+  position: sticky;
+  top: 0;
+  background: #fff;
+}
+.pageContainer .table-container table,
+td,
+th {
+  border: 1px solid #d4d4d4;
+  padding: 2em;
+}
+.pageContainer .table-container table tr td a {
+  color: #000;
+  text-decoration: none;
+}
+.pageContainer .actions {
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  margin: 3rem auto 2rem;
+}
+.pageContainer .actions a {
+  background: var(--green-buttons-background-color);
+  padding: 10px 40px;
+  color: #000;
+  text-decoration: none;
+  border-radius: 20px;
+}
+@media screen and (max-width: 910px) {
+  .pageContainer .studentsLogIcon {
+    display: none;
+  }
+}

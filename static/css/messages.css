@@ -1,0 +1,50 @@
+.pageContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px;
+}
+.pageContainer .pageTitle {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+.pageContainer .messageTypesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pageContainer .messageTypesContainer a {
+  width: auto;
+  height: auto;
+  margin: 30px 0;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #000;
+}
+.pageContainer .messageTypesContainer .messageButton {
+  width: 350px;
+  background: var(--green-buttons-background-color);
+  position: relative;
+  padding: 25px 10px;
+  border-radius: 20px;
+  font-size: 1.3rem;
+}
+.pageContainer .messageTypesContainer .messageButton img {
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  top: -30px;
+  left: -25px;
+}
+.actions {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0 3rem;
+}
+.actions a {
+  background: var(--green-buttons-background-color);
+  padding: 10px 50px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #000;
+}

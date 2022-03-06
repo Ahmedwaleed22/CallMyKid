@@ -1,0 +1,60 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+.searchBar {
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  padding: 0.7em;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid #d4d4d4;
+  background: #e5e3e3;
+  font-size: 1.1rem;
+}
+.table-container {
+  margin-top: 3em;
+  max-height: 500px;
+  overflow: scroll;
+}
+.table-container table {
+  border-collapse: collapse;
+  overflow: scroll;
+}
+.table-container table thead th {
+  position: sticky;
+  top: 0;
+  background: #fff;
+}
+.table-container table,
+td,
+th {
+  border: 1px solid #d4d4d4;
+  padding: 2em;
+}
+.actions {
+  margin: 3em 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 500px;
+}
+.actions a {
+  background: var(--green-buttons-background-color);
+  color: #000;
+  text-decoration: none;
+  padding: 10px 40px;
+  border-radius: 20px;
+}
+.actions a:not(:last-child) {
+  margin-right: 10px;
+}
+@media screen and (max-width: 1200px) {
+  .table-container {
+    width: 100%;
+    padding: 10px;
+  }
+}

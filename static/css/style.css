@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --background-color: #dfecef;
+  --buttons-background-color: #c3c3c3;
+  --green-buttons-background-color: #5e8885;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+}
+body,
+html {
+  font-family: "Roboto", sans-serif;
+}
+header {
+  display: flex;
+  align-items: center;
+  padding: 0 1.5em;
+  background: var(--background-color);
+  height: 90px;
+}
+header .logo {
+  height: 70px;
+  width: 120px;
+}
+header .logo img {
+  width: 100%;
+  height: 100%;
+}
+header ul {
+  display: flex;
+  list-style-type: none;
+  margin-left: auto;
+}
+header ul a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+header ul a:not(:last-child) {
+  margin-right: 1.5em;
+}
+header .burgerIcon {
+  display: none;
+}
+#footer {
+  background: var(--background-color);
+  padding: 1.5em;
+}
+@media screen and (max-width: 600px) {
+  header ul {
+    position: absolute;
+    flex-direction: column;
+    right: 0;
+    top: 90px;
+    background: var(--background-color);
+    padding: 10px 30px;
+    height: calc(100vh - 90px);
+    overflow: scroll;
+    align-items: center;
+    transform: translateX(100%);
+    z-index: 9999;
+  }
+  header ul.opened {
+    animation: openNav 0.3s ease forwards;
+  }
+  header ul.closed {
+    animation: closeNav 0.3s ease forwards;
+  }
+  header ul a {
+    margin: 0 !important;
+  }
+  header ul li {
+    padding: 2rem;
+  }
+  header ul a:last-child li {
+    padding-bottom: 0;
+  }
+  header .burgerIcon {
+    display: block;
+    margin-left: auto;
+  }
+
+  @keyframes openNav {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes closeNav {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+}
