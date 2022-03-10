@@ -6,48 +6,117 @@ if (!isset($_SESSION['email'])) {
   exit;
 }
 
-$custom_styles = "emergencymessages.css";
+$custom_styles = "addAbsenceNotices.css";
 
 require "init.php";
 require $inc . "header.inc.php";
 require $inc . "navbar.inc.php";
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-  $message_subject = "Emergency Messages";
-  $message_to = "All Students";
-  $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+$studentsInstance = new Students($_SESSION['email']);
+$students = $studentsInstance->fetchAll() ?? [];
 
-  $messageInstance = new Messages($_SESSION['email']);
-  $sendEmergencyMessage = $messageInstance->sendEmergencyMessage($message_subject, $message_to, $message);
-
-  if ($sendEmergencyMessage) {
-    header("Location: successPage.php");
-    exit;
-  } else {
-    header("Location: failPage.php");
-    exit;
-  }
-}
+$classesInstance = new Classes($_SESSION['email']);
+$classes = $classesInstance->fetchAll() ?? [];
 ?>
 
 <div class="pageContainer">
-  <div class="to_container">
-    <span>TO</span>
-    <h3>All the students</h3>
+  <div class="searchBarContainer">
+    <input id="searchBar" type="text" placeholder="Search" class="searchBar">
   </div>
-  <div class="subject_container">
-    <span>Subject:</span>
-    <h3 class="message_type">emergency messages</h3>
+  <div class="selectAllContainer">
+    <script>
+      const receiversName = [];
+
+      Array.prototype.remove = function(from, to) {
+        var rest = this.slice((to || from) + 1 || this.length);
+        this.length = from < 0 ? this.length + from : from;
+        return this.push.apply(this, rest);
+      };
+
+      const compose = () => {
+        window.open(`sendEmergencyMessages.php?receivers=${receiversName.join("|")}`, '_self');
+      }
+
+      window.addEventListener('load', () => {
+        const selectAllButton = document.getElementById('selectAllButton');
+        const allCheckBoxes = document.querySelectorAll('input[type=checkbox]');
+
+        selectAllButton.addEventListener('click', () => {
+          allCheckBoxes.forEach(checkbox => {
+            checkbox.checked = !checkbox.checked;
+            if (checkbox.checked) {
+              receiversName.push(checkbox.getAttribute('data-receivername'));
+            } else {
+              receiversName.remove(receiversName.indexOf(checkbox.getAttribute('data-receivername')));
+            }
+          });
+        });
+
+        allCheckBoxes.forEach((checkbox) => {
+          checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+              receiversName.push(checkbox.getAttribute('data-receivername'));
+            } else {
+              receiversName.remove(receiversName.indexOf(checkbox.getAttribute('data-receivername')));
+            }
+          })
+        });
+      });
+    </script>
+    <button id="selectAllButton" type="button">Select All</button>
   </div>
-  <div class="text_area_container">
-    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
-      <textarea name="message" id="" cols="30" rows="10" placeholder="Text Writing..."></textarea>
-      <button type="submit">Send</button>
-    </form>
+  <div class="pageTables">
+    <div class="table-container">
+      <table>
+        <thead>
+          <th>ID NO</th>
+          <th>Full Name</th>
+        </thead>
+        <tbody>
+          <?php
+          foreach ($students as $row) {
+          ?>
+            <tr>
+              <td>
+                <span><?php echo $row['ID_number'] ?></span>
+                <input type="checkbox" data-receivername="<?php echo $row['first_name'] . " " . $row['last_name'] ?>">
+              </td>
+              <td><?php echo $row['first_name'] ?> <?php echo $row['last_name'] ?></td>
+            </tr>
+          <?php
+          }
+          ?>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <th>ID NO</th>
+          <th>Class Name</th>
+        </thead>
+        <tbody>
+          <?php
+          foreach ($classes as $class) {
+          ?>
+            <tr>
+              <td>
+                <span><?php echo $class['ID'] ?></span>
+                <input type="checkbox" data-receivername="<?php echo $class['class_name'] ?>">
+              </td>
+              <td><?php echo $class['class_name'] ?></td>
+            </tr>
+          <?php
+          }
+          ?>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 <div class="actions">
-  <a href="messages.php">Back</a>
+  <a href="absenceNotices.php">back</a>
+  <button onclick="compose()" type="button">Compose</button>
 </div>
 
 <?php

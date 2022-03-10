@@ -15,7 +15,6 @@ require $inc . "navbar.inc.php";
 $student_id = filter_var($_GET['student_id'], FILTER_SANITIZE_NUMBER_INT);
 
 $studentsInstance = new Students($_SESSION['email']);
-$studentLogs = $studentsInstance->studentCheckInOut($student_id);
 $studentInfo = $studentsInstance->fetch($student_id);
 ?>
 
@@ -29,7 +28,6 @@ $studentInfo = $studentsInstance->fetch($student_id);
       </div>
     </div>
     <div class="searchAndDate">
-      <!-- <input type="text" placeholder="Search" class="searchBar" /> -->
       <div class="dateController">
         <script>
           const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -43,7 +41,7 @@ $studentInfo = $studentsInstance->fetch($student_id);
 
             const {
               data
-            } = await axios.get(`api/searchStudentLog.php?student_id=<?php echo $student_id ?>&month=${month}&year=${year}`) ?? [];
+            } = await axios.get(`api/searchStudentLog.php?student_id=<?php echo $student_id ?>&month=${month}&year=${year}&absence=<?php echo isset($_GET['page']) && filter_var($_GET['page'], FILTER_SANITIZE_STRING) == 'Absence' ? 'true' : 'false' ?>`) ?? [];
 
             if (data) {
               data.forEach((log) => {
@@ -58,8 +56,8 @@ $studentInfo = $studentsInstance->fetch($student_id);
                       <td>${day}</td>
                       <td>${log.date}</td>
                       <td>${log.place_name}</td>
-                      <td>${log.check_in_time}</td>
-                      <td>${log.check_out_time}</td>
+                      <td class="${log.check_in_time == null ? 'absence' : ''}">${log.check_in_time == null ? '' : log.check_in_time}</td>
+                      <td class="${log.check_out_time == null ? 'absence' : ''}">${log.check_out_time == null ? '' : log.check_out_time}</td>
                     </tr>
                   `;
 
@@ -183,6 +181,15 @@ $studentInfo = $studentsInstance->fetch($student_id);
         <span class="future" onclick="increaseDate()"><img src="<?php echo $svg ?>futureArrow.svg" alt="future arrow" /></span>
       </div>
     </div>
+    <?php
+    if (!isset($_GET['page'])) {
+    ?>
+      <div class="absenceButton">
+        <a href="?student_id=<?php echo $student_id ?>&page=Absence">Absence</a>
+      </div>
+    <?php
+    }
+    ?>
   </div>
   <div class="middlePage">
     <div class="table-container">
@@ -194,21 +201,7 @@ $studentInfo = $studentsInstance->fetch($student_id);
           <th>Check in time</th>
           <th>check out time</th>
         </thead>
-        <tbody id="tableBody">
-          <!-- <?php
-                foreach ($studentLogs as $log) {
-                ?>
-            <tr>
-              <td><?php echo date("D", strtotime($log['date'])) ?></td>
-              <td><?php echo $log['date'] ?></td>
-              <td><?php echo $log['place_name'] ?></td>
-              <td><?php echo $log['check_in_time'] ?></td>
-              <td><?php echo date("g:i a", strtotime($log['check_out_time'])) ?></td>
-            </tr>
-          <?php
-                }
-          ?> -->
-        </tbody>
+        <tbody id="tableBody"></tbody>
       </table>
     </div>
   </div>

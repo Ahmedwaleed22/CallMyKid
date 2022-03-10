@@ -15,11 +15,36 @@ require $inc . "navbar.inc.php";
 $studentsInstance = new Students($_SESSION['email']);
 $students = $studentsInstance->fetchAll() ?? [];
 ?>
+
+<script>
+  window.addEventListener('load', async () => {
+    document.getElementById('deleteButton').addEventListener('click', () => {
+      const deletedItems = document.querySelectorAll(".deletedItems");
+
+      deletedItems.forEach(async (item) => {
+        if (item.checked) {
+          let student_id = item.getAttribute('data-id');
+
+          const {
+            data
+          } = await axios.post('api/deleteStudent.php', {
+            id: student_id
+          });
+
+          if (data.success) {
+            searchStudents('');
+          }
+        }
+      })
+    });
+  })
+</script>
 <div class="pageContainer">
-  <input type="text" placeholder="Search" class="searchBar" onkeyup="searchStudents(event)">
+  <input type="text" placeholder="Search" class="searchBar" onkeyup="searchStudents(this.value)">
   <div class="table-container">
     <table>
       <thead>
+        <th>#</th>
         <th>ID NO</th>
         <th>First Name</th>
         <th>Last Name</th>
@@ -33,6 +58,7 @@ $students = $studentsInstance->fetchAll() ?? [];
         foreach ($students as $student) {
         ?>
           <tr>
+            <td><input type="checkbox" id="<?php echo $student['ID_number'] ?>" class="deletedItems" data-id="<?php echo $student['ID'] ?>" /></td>
             <td><?php echo $student['ID_number'] ?></td>
             <td><?php echo $student['first_name'] ?></td>
             <td><?php echo $student['last_name'] ?></td>
@@ -50,7 +76,7 @@ $students = $studentsInstance->fetchAll() ?? [];
   <div class="actions">
     <a href="services.php">Back</a>
     <a href="addStudent.php">Add new</a>
-    <a>Delete</a>
+    <a id="deleteButton">Delete</a>
   </div>
 </div>
 

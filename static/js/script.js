@@ -70,8 +70,7 @@ const updateStudentsTableData = async () => {
   });
 };
 
-const searchStudents = async (event) => {
-  const searchKeyword = event.target.value;
+const searchStudents = async (searchKeyword) => {
   const tableBody = document.getElementById("studentsTableBody");
   let matchingData = ``;
 
@@ -85,7 +84,8 @@ const searchStudents = async (event) => {
         matchingData +
         `
         <tr>
-          <td>${student.ID}</td>
+          <td><input type="checkbox" id="${student.ID_number}" class="deletedItems" data-id="${student.ID}" /></td>
+          <td>${student.ID_number}</td>
           <td>${student.first_name}</td>
           <td>${student.last_name}</td>
           <td>${student.date_of_birth}</td>

@@ -51,6 +51,18 @@
   height: 20px;
   cursor: pointer;
 }
+.upperPage .absenceButton {
+  position: absolute;
+  right: 40px;
+  top: 90px;
+}
+.upperPage .absenceButton a {
+  background: var(--background-color);
+  padding: 10px 40px;
+  border-radius: 20px;
+  color: #000;
+  text-decoration: none;
+}
 .middlePage {
   display: flex;
   justify-content: center;
@@ -71,6 +83,9 @@
   top: 0;
   background: #fff;
 }
+.middlePage .table-container table tbody td.absence {
+  background: red;
+}
 .middlePage .table-container table,
 td,
 th {
@@ -88,7 +103,11 @@ th {
   }
   .pageContainer .studentInfo {
     position: static;
-    margin: 30px 0;
+    margin: 3px 0;
+  }
+  .pageContainer .absenceButton {
+    position: static;
+    margin: 1em 0;
   }
   .upperPage .searchAndDate {
     margin: 30px 0;

@@ -117,12 +117,15 @@ class Students extends Dbh
     }
   }
 
-  public function searchStudentLog($month, $year, $student_id)
+  public function searchStudentLog($month, $year, $student_id, $absence)
   {
     $month_number = date("m", strtotime($month));
-    $date = $month_number . '/' . $year;
 
-    $sql = "SELECT students_logs.*, students.* FROM students_logs INNER JOIN students ON students_logs.student_id = students.ID WHERE students.school_id = ? AND students.ID_number = ? AND (MONTH(students_logs.date) = ?) AND (YEAR(students_logs.date) = ?) ORDER BY Date DESC";
+    if ($absence == 'false') {
+      $sql = "SELECT students_logs.*, students.* FROM students_logs INNER JOIN students ON students_logs.student_id = students.ID WHERE students.school_id = ? AND students.ID_number = ? AND (MONTH(students_logs.date) = ?) AND (YEAR(students_logs.date) = ?) AND students_logs.check_in_time IS NOT NULL AND students_logs.check_out_time IS NOT NULL ORDER BY Date DESC";
+    } else {
+      $sql = "SELECT students_logs.*, students.* FROM students_logs INNER JOIN students ON students_logs.student_id = students.ID WHERE students.school_id = ? AND students.ID_number = ? AND (MONTH(students_logs.date) = ?) AND (YEAR(students_logs.date) = ?) AND students_logs.check_in_time IS NULL AND students_logs.check_out_time IS NULL ORDER BY Date DESC";
+    }
     $stmt = $this->connect()->prepare($sql);
     $stmt->execute([$this->admin_school_id, $student_id, $month_number, $year]);
 

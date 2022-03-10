@@ -26,9 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   $admin_data = json_decode($admin->editAdminData($username, $first_name, $last_name, $email, $new_password, $password_confirmation));
 
   if ($admin_data->success) {
-    $success = "Data Updated Successfully.";
     session_regenerate_id();
     $_SESSION['email'] = $admin_data->email;
+    header('Location: account.php');
+    exit;
   } else {
     $error = $admin_data->message;
   }
@@ -46,13 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($error)) {
     ?>
       <div class="error"><?php echo $error ?></div>
-    <?php
-    }
-    ?>
-    <?php
-    if (isset($success)) {
-    ?>
-      <div class="success"><?php echo $success ?></div>
     <?php
     }
     ?>
